@@ -1,10 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const BottomNavigation = () => {
   const [activeTab, setActiveTab] = useState('HOME');
+  const pathname = usePathname();
 
   const navItems = [
     {
@@ -68,14 +71,35 @@ const BottomNavigation = () => {
     }
   ];
 
+  // Sync activeTab with current pathname
+  useEffect(() => {
+    const currentItem = navItems.find(item => item.href === pathname);
+    if (currentItem) {
+      setActiveTab(currentItem.id);
+    }
+  }, [pathname]);
+
+  // Helper function to get background color for dot
+  const getDotColor = (color: string) => {
+    const colorMap: { [key: string]: string } = {
+      'text-red-500': 'bg-red-500',
+      'text-pink-500': 'bg-pink-500',
+      'text-blue-500': 'bg-blue-500',
+      'text-green-500': 'bg-green-500',
+      'text-purple-500': 'bg-purple-500'
+    };
+    return colorMap[color] || 'bg-gray-500';
+  };
+
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 md:hidden z-50">
       <div className="flex justify-around items-center py-2">
         {navItems.map((item) => (
-          <div
+          <Link
             key={item.id}
+            href={item.href}
             onClick={() => setActiveTab(item.id)}
-            className={`flex flex-col items-center py-2 px-3 min-w-0 flex-1 cursor-pointer ${
+            className={`flex flex-col items-center py-2 px-3 min-w-0 flex-1 ${
               activeTab === item.id 
                 ? `${item.color} font-semibold` 
                 : 'text-gray-400'
@@ -88,9 +112,9 @@ const BottomNavigation = () => {
               {item.label}
             </span>
             {activeTab === item.id && (
-              <div className={`w-1 h-1 rounded-full mt-1 ${item.color.replace('text-', 'bg-')}`} />
+              <div className={`w-1 h-1 rounded-full mt-1 ${getDotColor(item.color)}`} />
             )}
-          </div>
+          </Link>
         ))}
       </div>
     </div>
