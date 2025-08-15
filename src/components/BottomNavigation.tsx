@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { useState } from 'react';
+import Image from 'next/image';
 
 const BottomNavigation = () => {
   const [activeTab, setActiveTab] = useState('HOME');
@@ -33,11 +33,15 @@ const BottomNavigation = () => {
       id: 'TEL-AI',
       label: 'TEL-AI',
       icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-        </svg>
+        <Image 
+          src="/images/ai-icon.png" 
+          alt="AI Icon" 
+          width={48} 
+          height={48}
+          className="w-12 h-12 object-contain"
+        />
       ),
-      href: '/tel-ai',
+      href: '/ai',
       color: 'text-blue-500'
     },
     {
@@ -45,15 +49,15 @@ const BottomNavigation = () => {
       label: 'ORDER',
       icon: (
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M7 4V2C7 1.45 7.45 1 8 1H16C16.55 1 17 1.45 17 2V4H20C20.55 4 21 4.45 21 5S20.55 6 20 6H19V19C19 20.1 18.1 21 17 21H7C5.9 21 5 20.1 5 19V6H4C3.45 6 3 5.55 3 5S3.45 4 4 4H7ZM9 3V4H15V3H9ZM7 6V19H17V6H7Z"/>
+          <path d="M19 7h-3V6a4 4 0 0 0-8 0v1H5a1 1 0 0 0-1 1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8a1 1 0 0 0-1-1zM10 6a2 2 0 0 1 4 0v1h-4V6zm8 13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9h2v1a1 1 0 0 0 2 0V9h4v1a1 1 0 0 0 2 0V9h2v10z"/>
         </svg>
       ),
-      href: '/orders',
+      href: '/order',
       color: 'text-green-500'
     },
     {
-      id: 'RAFIQ',
-      label: 'RAFIQ',
+      id: 'MONICA',
+      label: 'MONICA',
       icon: (
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
@@ -68,11 +72,10 @@ const BottomNavigation = () => {
     <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 md:hidden z-50">
       <div className="flex justify-around items-center py-2">
         {navItems.map((item) => (
-          <Link
+          <div
             key={item.id}
-            href={item.href}
             onClick={() => setActiveTab(item.id)}
-            className={`flex flex-col items-center py-2 px-3 min-w-0 flex-1 ${
+            className={`flex flex-col items-center py-2 px-3 min-w-0 flex-1 cursor-pointer ${
               activeTab === item.id 
                 ? `${item.color} font-semibold` 
                 : 'text-gray-400'
@@ -87,7 +90,7 @@ const BottomNavigation = () => {
             {activeTab === item.id && (
               <div className={`w-1 h-1 rounded-full mt-1 ${item.color.replace('text-', 'bg-')}`} />
             )}
-          </Link>
+          </div>
         ))}
       </div>
     </div>

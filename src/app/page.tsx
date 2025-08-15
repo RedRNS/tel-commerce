@@ -32,12 +32,12 @@ const Homepage = () => {
   return (
     <Layout>
       {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-red-500 to-pink-600 text-white py-4">
+      <section className="bg-gradient-to-r from-red-500 to-pink-600 text-white py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 whitespace-nowrap overflow-hidden">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 whitespace-nowrap overflow-hidden">
             Selamat datang, Monica!
           </h1>
-          <p className="text-base md:text-lg mb-3 text-red-50">
+          <p className="text-sm md:text-base mb-4 text-red-50">
             Mau belanja apa hari ini?
           </p>
           

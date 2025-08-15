@@ -12,22 +12,22 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0">
+            <div className="flex-shrink-0 cursor-default">
               <Logo />
-            </Link>
+            </div>
           </div>
           
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-white hover:text-red-100 transition-colors font-medium">
+            <span className="text-white hover:text-red-100 transition-colors font-medium cursor-default">
               Marketplace
-            </Link>
-            <Link href="#categories" className="text-white hover:text-red-100 transition-colors font-medium">
+            </span>
+            <span className="text-white hover:text-red-100 transition-colors font-medium cursor-default">
               Categories
-            </Link>
-            <button className="bg-white text-red-600 px-4 py-2 rounded-lg font-medium hover:bg-red-50 transition-all transform hover:scale-105 shadow-md">
+            </span>
+            <Link href="/login" className="bg-white text-red-600 px-4 py-2 rounded-lg font-medium hover:bg-red-50 transition-all transform hover:scale-105 shadow-md">
               Login
-            </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -47,15 +47,15 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link href="/" className="block text-white hover:text-red-200 px-3 py-2">
+              <span className="block text-white hover:text-red-200 px-3 py-2 cursor-default">
                 Marketplace
-              </Link>
-              <Link href="#categories" className="block text-white hover:text-red-200 px-3 py-2">
+              </span>
+              <span className="block text-white hover:text-red-200 px-3 py-2 cursor-default">
                 Categories
-              </Link>
-              <button className="w-full text-left bg-white text-red-600 px-3 py-2 rounded-md font-medium">
+              </span>
+              <Link href="/login" className="w-full text-left bg-white text-red-600 px-3 py-2 rounded-md font-medium block">
                 Login
-              </button>
+              </Link>
             </div>
           </div>
         )}

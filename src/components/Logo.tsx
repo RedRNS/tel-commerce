@@ -24,7 +24,7 @@ const Logo = ({ className = "" }: LogoProps) => {
         <span className="text-red-600 text-xl font-bold">TC</span>
         */}
       </div>
-      <span className="text-white text-2xl font-bold">Tel-Commerce</span>
+      <span className="text-white text-xl font-bold">Tel-Commerce</span>
     </div>
   );
 };
