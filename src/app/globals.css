@@ -10,6 +10,18 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* Tel-Commerce color palette */
+  --color-tel-red-50: #fef2f2;
+  --color-tel-red-100: #fee2e2;
+  --color-tel-red-200: #fecaca;
+  --color-tel-red-300: #fca5a5;
+  --color-tel-red-400: #f87171;
+  --color-tel-red-500: #ef4444;
+  --color-tel-red-600: #dc2626;
+  --color-tel-red-700: #b91c1c;
+  --color-tel-red-800: #991b1b;
+  --color-tel-red-900: #7f1d1d;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +35,32 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom utilities */
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dc2626;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b91c1c;
 }
